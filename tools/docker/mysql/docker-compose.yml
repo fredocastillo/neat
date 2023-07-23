@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: neat-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: neat_db
+      MYSQL_USER: neat_user
+      MYSQL_PASSWORD: neat_password
+    volumes:
+      - /path/to/local/directory:/var/lib/mysql
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
