@@ -2,7 +2,13 @@
   "name": "@neat/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "typeorm":            "ts-node -r tsconfig-paths/register --project apps/api/tsconfig.app.json node_modules/.bin/typeorm",
+    "migration:create":   "typeorm migration:create",
+    "migration:generate": "typeorm migration:generate -d apps/api/src/app/database/datasource.ts",
+    "migration:run":      "typeorm migration:run -d apps/api/src/app/database/datasource.ts",
+    "migration:revert":   "typeorm migration:revert -d apps/api/src/app/database/datasource.ts"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~16.1.0",

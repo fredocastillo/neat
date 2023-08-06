@@ -15,7 +15,7 @@ import { DatabaseType } from 'typeorm';
         username: mysqlConfigService.user,
         password: mysqlConfigService.password,
         database: mysqlConfigService.database,
-        synchronize: true,
+        synchronize: false,
         autoLoadEntities: true,
       }),
       inject: [MysqlConfigService],
