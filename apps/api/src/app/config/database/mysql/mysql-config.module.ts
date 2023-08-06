@@ -8,6 +8,8 @@ import Joi from 'joi';
   imports:[
     ConfigModule.forRoot({
       load: [configuration],
+      ignoreEnvFile: process.env.NODE_ENV === 'production' ? true : false,
+      envFilePath: `apps/api/src/environments/.env.${process.env.NODE_ENV || 'development'}`,
       validationSchema: Joi.object({
         DB_USER: Joi.string().exist(),
         DB_PASSWORD: Joi.string().exist(),

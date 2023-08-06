@@ -20,6 +20,7 @@
       },
       "configurations": {
         "development": {},
+        "staging": {},
         "production": {}
       }
     },
@@ -32,6 +33,9 @@
       "configurations": {
         "development": {
           "buildTarget": "api:build:development"
+        },
+        "staging": {
+          "buildTarget": "api:build:staging"
         },
         "production": {
           "buildTarget": "api:build:production"
