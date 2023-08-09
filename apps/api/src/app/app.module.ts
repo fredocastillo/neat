@@ -10,6 +10,7 @@ import { BottlesModule } from './models/bottles/bottles.module';
 import { BlindsModule } from './models/blinds/blinds.module';
 import { BlindBottlesModule } from './models/blind-bottles/blind-bottles.module';
 import { BlindUsersModule } from './models/blind-users/blind-users.module';
+import { BlindBottleResultsModule } from './models/blind-bottle-results/blind-bottle-results.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { BlindUsersModule } from './models/blind-users/blind-users.module';
     BlindsModule,
     BlindBottlesModule,
     BlindUsersModule,
+    BlindBottleResultsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
