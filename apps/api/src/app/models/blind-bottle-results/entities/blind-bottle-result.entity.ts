@@ -1,16 +1,10 @@
-import { Column, Entity, ManyToOne } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
 import { AuditBase } from "../../../common/entities/audit-base.entity";
 import { User } from "../../users/entities/user.entity";
 import { BlindBottle } from "../../blind-bottles/entities/blind-bottle.entity";
 
 Entity('blind_bottle_results')
 export class BlindBottleResult extends AuditBase {
-
-  @Column()
-  userId: number;
-
-  @Column()
-  blindBottleId: number;
 
   @Column({ type: 'int', nullable: true })
   rank: number;
@@ -25,8 +19,10 @@ export class BlindBottleResult extends AuditBase {
   other: string;
 
   @ManyToOne(() => User, (user) => user.blindBottleResults)
+  @JoinColumn({ name: 'user_id'})
   user: User;
 
   @ManyToOne(() => BlindBottle, (blindBottle) => blindBottle.blindBottleResults)
+  @JoinColumn({ name: 'blind_bottle_id'})
   blindBottle: BlindBottle;
 }

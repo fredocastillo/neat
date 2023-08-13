@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany } from "typeorm";
 import { AuditBase } from "../../../common/entities/audit-base.entity";
-import { BlindUser } from "../../blind-users/entities/blind-user.entity";
 import { BlindBottle } from "../../blind-bottles/entities/blind-bottle.entity";
+import { BlindUser } from "../../blind-users/entities/blind-user.entity";
 
 @Entity("blinds")
 export class Blind extends AuditBase {

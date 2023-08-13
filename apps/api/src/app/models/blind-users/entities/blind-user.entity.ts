@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne } from "typeorm";
+import { Entity, JoinColumn, ManyToOne } from "typeorm";
 import { AuditBase } from "../../../common/entities/audit-base.entity";
 import { Blind } from "../../blinds/entities/blind.entity";
 import { User } from "../../users/entities/user.entity";
@@ -6,15 +6,11 @@ import { User } from "../../users/entities/user.entity";
 Entity('blind_users')
 export class BlindUser extends AuditBase {
 
-  @Column()
-  blindId: number;
-
-  @Column()
-  userId: number;
-
   @ManyToOne(() => Blind, (blind) => blind.blindUsers)
+  @JoinColumn({ name: 'blind_id'})
   blind: Blind;
 
   @ManyToOne(() => User, (user) => user.blindUsers)
+  @JoinColumn({ name: 'user_id'})
   user: User;
 }
