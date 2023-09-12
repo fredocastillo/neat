@@ -9,6 +9,7 @@ import { UserModule } from './models/user/user.module';
 import { BlindModule } from './models/blind/blind.module';
 import { UserBlindModule } from './models/user-blind/user-blind.module';
 import { BottleModule } from './models/bottle/bottle.module';
+import { BlindBottleModule } from './models/blind-bottle/blind-bottle.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { BottleModule } from './models/bottle/bottle.module';
     BlindModule,
     UserBlindModule,
     BottleModule,
+    BlindBottleModule,
   ],
   controllers: [AppController],
   providers: [AppService],

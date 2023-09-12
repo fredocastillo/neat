@@ -1,6 +1,7 @@
-import { Column, Entity, ManyToOne } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from "typeorm";
 import { AuditBase } from "../../../common/entities/audit-base.entity";
 import { User } from "../../user/entities/user.entity";
+import { BlindBottle } from "../../blind-bottle/entities/blind-bottle.entity";
 
 @Entity("bottles")
 export class Bottle extends AuditBase {
@@ -39,6 +40,10 @@ export class Bottle extends AuditBase {
   price: number;
 
   @ManyToOne(() => User, (user) => user.bottles)
+  @JoinColumn({ name: 'user_id'})
   user: User
+
+  @OneToMany(() => BlindBottle, (blindBottle) => blindBottle.bottle)
+  blindBottles: BlindBottle[];
 
 }
