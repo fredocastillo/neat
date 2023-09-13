@@ -62,6 +62,38 @@
           "codeCoverage": true
         }
       }
+    },
+
+    "generate-migration": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/api/src/app/database/migrations",
+        "commands": ["ts-node -r tsconfig-paths/register --project ../../../../tsconfig.app.json ../../../../../../node_modules/.bin/typeorm migration:generate -d ../datasource.ts"]
+      }
+    },
+
+    "create-migration": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/api/src/app/database/migrations",
+        "commands": ["ts-node -r tsconfig-paths/register --project ../../../../tsconfig.app.json ../../../../../../node_modules/.bin/typeorm migration:create"]
+      }
+    },
+
+    "run-migration": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/api/src/app/database/migrations",
+        "commands": ["ts-node -r tsconfig-paths/register --project ../../../../tsconfig.app.json ../../../../../../node_modules/.bin/typeorm migration:run -d ../datasource.ts"]
+      }
+    },
+
+    "revert-migration": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/api/src/app/database/migrations",
+        "commands": ["ts-node -r tsconfig-paths/register --project ../../../../tsconfig.app.json ../../../../../../node_modules/.bin/typeorm migration:run -d ../datasource.ts"]
+      }
     }
   },
   "tags": []
